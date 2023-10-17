@@ -1,4 +1,5 @@
 import { pageLinks, socialLinks } from '../data';
+import SocialLink from './SocialLink';
 
 const Footer = () => {
   return (
@@ -18,18 +19,13 @@ const Footer = () => {
 
       <ul className="footer-icons">
         {socialLinks.map((link) => {
-          const { id, href, icon } = link;
           return (
-            <li key={id}>
-              <a
-                href={href}
-                target="_blank"
-                className="footer-icon"
-                rel="noreferrer"
-              >
-                <i className={icon}></i>
-              </a>
-            </li>
+            <SocialLink
+              key={link.id}
+              href={link.href}
+              icon={link.icon}
+              itemClass={'footer-icon'}
+            ></SocialLink>
           );
         })}
       </ul>
